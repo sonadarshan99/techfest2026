@@ -1,9 +1,11 @@
 import axios from "axios";
 
+const rawUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+// Strip any accidental brackets, quotes, or trailing slashes
+const cleanedUrl = rawUrl.replace(/[\[\]'"]/g, "").replace(/\/+$/, "");
+
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL 
-    ? `${import.meta.env.VITE_API_URL}/api` 
-    : "http://localhost:5000/api"
+  baseURL: `${cleanedUrl}/api`
 });
 
 API.interceptors.request.use((config) => {
