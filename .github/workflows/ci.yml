@@ -21,7 +21,7 @@ jobs:
       - name: Install and Build Frontend
         working-directory: ./techfest2026-react
         run: |
-          npm ci
+          npm install
           npm run build
 
   verify-backend:
@@ -38,4 +38,4 @@ jobs:
       - name: Install Backend Dependencies
         working-directory: ./techfest2026-react/techfest-backend
         run: |
-          npm ci
+          npm install
